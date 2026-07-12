@@ -23,7 +23,7 @@ export const leadership = [
   },
   {
     name: "Mr. Bambe Bayirga Sulley",
-    role: "Co-founder & Trade Partner"
+    role: "Co-Founder & Trade Partner"
   }
 ];
 
@@ -87,7 +87,7 @@ export const processSteps = [
 ];
 
 export const complianceStatement =
-  "AfriBridge AgroTrade operates as an independent trade facilitator. We do not claim ownership of commodities, guaranteed allocation, producer status, direct seller status, or official supplier representation unless supported by valid written authorization. All transactions are subject to independent verification, counterparty due diligence, supplier approval, contractual agreement, applicable sanctions requirements, export controls, customs requirements, and relevant laws.";
+  "AfriBridge AgroTrade operates as an independent trade facilitator. We do not claim ownership of commodities, guaranteed allocation, producer status, direct seller status, or official supplier representation unless supported by valid written authorization. All transactions are subject to independent verification, counterparty due diligence, supplier approval, contractual agreement, applicable sanctions, trade-control, export-control, customs, and regulatory requirements, and relevant laws.";
 
 export const complianceExclusion =
   "AfriBridge does not provide banking guarantees, investment services, legal advice, inspection certification, or guaranteed transaction outcomes.";

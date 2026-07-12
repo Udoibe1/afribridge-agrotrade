@@ -107,7 +107,7 @@ export async function POST(request: Request) {
 
   const values =
     body.values && typeof body.values === "object"
-      ? (body.values as Record<string, string | boolean>)
+      ? (body.values as Record<string, string | boolean | string[]>)
       : {};
   const validation = validateSubmission(kind as FormKind, values);
 

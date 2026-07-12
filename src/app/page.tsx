@@ -41,11 +41,10 @@ export default function HomePage() {
 function HeroSection() {
   return (
     <section className="relative isolate overflow-hidden bg-navy-950 text-white">
-      <TradeRouteVisual />
-      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,13,24,0.98)_0%,rgba(7,13,24,0.72)_44%,rgba(7,13,24,0.1)_100%)]" />
-      <div className="container-shell relative py-16 sm:py-20 lg:py-24">
-        <div className="max-w-3xl">
-          <p className="eyebrow">AfriBridge AgroTrade</p>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_72%_18%,rgba(214,189,116,0.15),transparent_30rem)]" />
+      <div className="container-shell relative grid gap-8 py-10 sm:py-14 lg:grid-cols-[0.88fr_1.12fr] lg:items-center lg:py-16 xl:gap-10">
+        <div className="max-w-2xl">
+          <p className="eyebrow">Independent trade facilitation</p>
           <h1 className="mt-6 text-4xl font-semibold tracking-normal text-white sm:text-5xl lg:text-6xl">
             {company.tagline}
           </h1>
@@ -67,6 +66,7 @@ function HeroSection() {
             </Link>
           </div>
         </div>
+        <TradeRouteVisual />
       </div>
     </section>
   );
@@ -348,13 +348,14 @@ function ContactSection() {
         </div>
         <address className="not-italic">
           <div className="grid gap-4 sm:grid-cols-2">
-            {leadership.map((leader) => (
-              <ContactItem
-                key={leader.name}
-                label="Founder"
-                value={`${leader.name}, ${leader.role}`}
-              />
-            ))}
+            <ContactItem
+              label="Managing Partner"
+              value={leadership[0].name}
+            />
+            <ContactItem
+              label="Trade Partner"
+              value={leadership[1].name}
+            />
             <ContactItem label="Location" value={company.location} />
             <ContactItem
               label="Email"

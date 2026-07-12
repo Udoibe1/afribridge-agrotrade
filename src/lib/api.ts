@@ -10,7 +10,7 @@ export type InquiryApiResponse = {
 
 export type InquiryPayload = {
   kind: FormKind;
-  values: Record<string, string | boolean>;
+  values: Record<string, string | boolean | string[]>;
   submittedAt: string;
   clientIpHash?: string;
 };

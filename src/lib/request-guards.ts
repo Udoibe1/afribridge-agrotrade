@@ -103,8 +103,9 @@ export function hasValidSubmissionTiming(startedAt: unknown): boolean {
   return elapsedMs >= 1500 && elapsedMs <= 2 * 60 * 60 * 1000;
 }
 
-export function looksSpammy(values: Record<string, string | boolean>): boolean {
+export function looksSpammy(values: Record<string, string | boolean | string[]>): boolean {
   const text = Object.values(values)
+    .flatMap((value) => Array.isArray(value) ? value : [value])
     .filter((value): value is string => typeof value === "string")
     .join(" ")
     .toLowerCase();

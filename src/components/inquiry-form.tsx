@@ -38,11 +38,15 @@ export function InquiryForm({ kind, title, description }: InquiryFormProps) {
     event.preventDefault();
     const form = event.currentTarget;
     const formData = new FormData(form);
-    const rawValues: Record<string, FormDataEntryValue | string | boolean> = {};
+    const rawValues: Record<string, FormDataEntryValue | FormDataEntryValue[] | string | boolean> = {};
 
     for (const field of fields) {
       rawValues[field.name] =
-        field.type === "checkbox" ? formData.get(field.name) === "on" : formData.get(field.name) ?? "";
+        field.type === "checkbox"
+          ? formData.get(field.name) === "on"
+          : field.type === "checkboxGroup"
+            ? formData.getAll(field.name)
+            : formData.get(field.name) ?? "";
     }
 
     const localValidation = validateSubmission(kind, rawValues);
@@ -216,6 +220,47 @@ function FieldControl({
           </p>
         ) : null}
       </div>
+    );
+  }
+
+  if (field.type === "checkboxGroup") {
+    return (
+      <fieldset className="md:col-span-2">
+        <legend className="text-sm font-semibold text-navy-950">
+          {field.label}
+          {field.required ? <span className="text-red-700"> *</span> : null}
+        </legend>
+        <div
+          className="mt-2 grid gap-3 rounded-lg border border-forest-900/10 bg-warm-50 p-4 sm:grid-cols-2"
+          aria-describedby={error ? errorId : undefined}
+        >
+          {field.options?.map((option, index) => {
+            const optionId = `${id}-${index}`;
+
+            return (
+              <label
+                key={option}
+                htmlFor={optionId}
+                className="flex min-h-11 items-start gap-3 rounded-lg bg-white/70 px-3 py-2 text-sm leading-6 text-slate-700"
+              >
+                <input
+                  className="mt-1 h-4 w-4 shrink-0 rounded border-slate-300 text-forest-900 focus:ring-gold-300"
+                  id={optionId}
+                  name={field.name}
+                  type="checkbox"
+                  value={option}
+                />
+                <span>{option}</span>
+              </label>
+            );
+          })}
+        </div>
+        {error ? (
+          <p className="mt-2 text-sm text-red-700" id={errorId}>
+            {error}
+          </p>
+        ) : null}
+      </fieldset>
     );
   }
 

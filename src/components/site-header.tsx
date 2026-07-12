@@ -51,7 +51,7 @@ export function SiteHeader() {
         </Link>
       </div>
       <nav
-        className="container-shell flex gap-1 overflow-x-auto border-t border-forest-900/10 py-2 lg:hidden"
+        className="container-shell flex flex-wrap gap-1 border-t border-forest-900/10 py-2 lg:hidden"
         aria-label="Primary navigation"
       >
         {navigation.map((item) => (

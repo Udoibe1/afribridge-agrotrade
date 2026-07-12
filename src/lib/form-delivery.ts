@@ -203,11 +203,15 @@ function safeWebhookUrl(url: string): URL | null {
   }
 }
 
-function getValue(value: string | boolean | undefined): string {
+function getValue(value: string | boolean | string[] | undefined): string {
   return typeof value === "string" ? value : "";
 }
 
-function formatValue(value: string | boolean | undefined): string {
+function formatValue(value: string | boolean | string[] | undefined): string {
+  if (Array.isArray(value)) {
+    return value.length > 0 ? value.join(", ") : "Not provided";
+  }
+
   if (typeof value === "boolean") {
     return value ? "Yes" : "No";
   }

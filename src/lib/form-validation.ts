@@ -8,7 +8,8 @@ export type FieldType =
   | "url"
   | "select"
   | "textarea"
-  | "checkbox";
+  | "checkbox"
+  | "checkboxGroup";
 
 export type FieldDefinition = {
   name: string;
@@ -24,18 +25,74 @@ export type FieldDefinition = {
 
 export type ValidationResult = {
   ok: boolean;
-  values: Record<string, string | boolean>;
+  values: Record<string, string | boolean | string[]>;
   errors: Record<string, string>;
 };
 
-const countries = [
-  "Africa",
-  "East African market",
-  "Central African market",
-  "North African market",
-  "Southern African market",
-  "Other African market"
-];
+const africanCountries = [
+  "Algeria",
+  "Angola",
+  "Benin",
+  "Botswana",
+  "Burkina Faso",
+  "Burundi",
+  "Cabo Verde",
+  "Cameroon",
+  "Central African Republic",
+  "Chad",
+  "Comoros",
+  "Democratic Republic of the Congo",
+  "Republic of the Congo",
+  "Côte d’Ivoire",
+  "Djibouti",
+  "Egypt",
+  "Equatorial Guinea",
+  "Eritrea",
+  "Eswatini",
+  "Ethiopia",
+  "Gabon",
+  "The Gambia",
+  "Ghana",
+  "Guinea",
+  "Guinea-Bissau",
+  "Kenya",
+  "Lesotho",
+  "Liberia",
+  "Libya",
+  "Madagascar",
+  "Malawi",
+  "Mali",
+  "Mauritania",
+  "Mauritius",
+  "Morocco",
+  "Mozambique",
+  "Namibia",
+  "Niger",
+  "Nigeria",
+  "Rwanda",
+  "São Tomé and Príncipe",
+  "Senegal",
+  "Seychelles",
+  "Sierra Leone",
+  "Somalia",
+  "South Africa",
+  "South Sudan",
+  "Sudan",
+  "Tanzania",
+  "Togo",
+  "Tunisia",
+  "Uganda",
+  "Zambia",
+  "Zimbabwe",
+  "Other"
+] as const;
+const marketRegions = [
+  "North Africa",
+  "West Africa",
+  "Central Africa",
+  "East Africa",
+  "Southern Africa"
+] as const;
 const incoterms = ["EXW", "FCA", "FOB", "CFR", "CIF", "DAP", "Other"];
 const quantityUnits = ["MT", "KG", "Liters", "Containers", "Other"];
 const paymentInstruments = [
@@ -55,10 +112,12 @@ const supplierRoles = [
 const documentAvailability = [
   "Company registration documents",
   "Product specification sheets",
-  "Authorization documents where applicable",
+  "Export authorization",
+  "Manufacturer authorization, where applicable",
+  "Certificate of origin",
   "Export history or references",
-  "To be discussed"
-];
+  "Other"
+] as const;
 
 export const buyerFields: readonly FieldDefinition[] = [
   {
@@ -98,7 +157,14 @@ export const buyerFields: readonly FieldDefinition[] = [
     label: "Country",
     type: "select",
     required: true,
-    options: countries
+    options: africanCountries
+  },
+  {
+    name: "marketRegion",
+    label: "Market Region",
+    type: "select",
+    required: false,
+    options: marketRegions
   },
   {
     name: "product",
@@ -282,9 +348,10 @@ export const supplierFields: readonly FieldDefinition[] = [
   {
     name: "documentAvailability",
     label: "Supporting document availability",
-    type: "select",
+    type: "checkboxGroup",
     required: true,
-    options: documentAvailability
+    options: documentAvailability,
+    fullWidth: true
   },
   {
     name: "message",
@@ -313,14 +380,39 @@ export function getFields(kind: FormKind): readonly FieldDefinition[] {
 
 export function validateSubmission(
   kind: FormKind,
-  raw: Record<string, FormDataEntryValue | string | boolean | null | undefined>
+  raw: Record<string, FormDataEntryValue | FormDataEntryValue[] | string | string[] | boolean | null | undefined>
 ): ValidationResult {
   const errors: Record<string, string> = {};
-  const values: Record<string, string | boolean> = {};
+  const values: Record<string, string | boolean | string[]> = {};
   const fields = getFields(kind);
 
   for (const field of fields) {
     const rawValue = raw[field.name];
+
+    if (field.type === "checkboxGroup") {
+      const rawValues = Array.isArray(rawValue)
+        ? rawValue
+        : typeof rawValue === "string"
+          ? [rawValue]
+          : [];
+      const selectedValues = rawValues
+        .map((value) => sanitizeValue(String(value), "text"))
+        .filter(Boolean);
+      values[field.name] = selectedValues;
+
+      if (field.required && selectedValues.length === 0) {
+        errors[field.name] = `${field.label} is required.`;
+        continue;
+      }
+
+      if (
+        field.options &&
+        selectedValues.some((value) => !field.options?.includes(value))
+      ) {
+        errors[field.name] = "Select valid options.";
+      }
+      continue;
+    }
 
     if (field.type === "checkbox") {
       const checked =
