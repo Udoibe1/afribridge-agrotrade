@@ -29,18 +29,44 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/"
   },
+  icons: {
+    icon: [
+      {
+        url: "/favicon.png",
+        type: "image/png",
+        sizes: "512x512"
+      }
+    ],
+    apple: [
+      {
+        url: "/apple-touch-icon.png",
+        type: "image/png",
+        sizes: "180x180"
+      }
+    ],
+    shortcut: "/favicon.png"
+  },
   openGraph: {
     type: "website",
     url: siteUrl,
     siteName: "AfriBridge AgroTrade",
     title: `AfriBridge AgroTrade | ${company.tagline}`,
-    description: companyDescription
+    description: companyDescription,
+    images: [
+      {
+        url: "/afribridge-logo.png",
+        width: 1640,
+        height: 1626,
+        alt: "AfriBridge AgroTrade logo"
+      }
+    ]
   },
   twitter: {
     card: "summary_large_image",
     title: "AfriBridge AgroTrade",
     description:
-      "Independent agro-commodity trade facilitation between suppliers and qualified African buyers."
+      "Independent agro-commodity trade facilitation between suppliers and qualified African buyers.",
+    images: ["/afribridge-logo.png"]
   },
   robots: {
     index: true,

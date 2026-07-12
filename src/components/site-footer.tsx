@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { company, companyDescription } from "@/lib/site-data";
 
@@ -14,11 +15,22 @@ export function SiteFooter() {
     <footer className="border-t border-forest-900/10 bg-navy-950 text-warm-50">
       <div className="container-shell py-10">
         <div className="grid gap-8 md:grid-cols-[1.2fr_0.8fr] md:items-start">
-          <div>
-            <p className="text-lg font-semibold">{company.name}</p>
-            <p className="mt-2 max-w-xl text-sm leading-6 text-warm-100/80">
-              {companyDescription}
-            </p>
+          <div className="flex items-start gap-4">
+            <span className="grid h-16 w-16 shrink-0 place-items-center rounded-lg bg-white p-2 shadow-soft">
+              <Image
+                src="/afribridge-logo-mark.png"
+                alt=""
+                width={56}
+                height={56}
+                className="h-full w-full object-contain"
+              />
+            </span>
+            <div>
+              <p className="text-lg font-semibold">{company.name}</p>
+              <p className="mt-2 max-w-xl text-sm leading-6 text-warm-100/80">
+                {companyDescription}
+              </p>
+            </div>
           </div>
           <nav className="flex flex-wrap gap-3 md:justify-end" aria-label="Footer navigation">
             {links.map((link) => (

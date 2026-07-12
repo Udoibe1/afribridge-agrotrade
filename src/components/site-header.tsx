@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { company, navigation } from "@/lib/site-data";
 
@@ -10,8 +11,15 @@ export function SiteHeader() {
           className="focus-ring flex items-center gap-3 rounded-lg py-3"
           aria-label="AfriBridge AgroTrade home"
         >
-          <span className="grid h-10 w-10 place-items-center rounded-lg bg-forest-900 text-sm font-semibold text-warm-50">
-            AB
+          <span className="grid h-12 w-12 shrink-0 place-items-center rounded-lg border border-forest-900/10 bg-white p-1 shadow-sm">
+            <Image
+              src="/afribridge-logo-mark.png"
+              alt=""
+              width={44}
+              height={44}
+              priority
+              className="h-full w-full object-contain"
+            />
           </span>
           <span className="leading-tight">
             <span className="block text-sm font-semibold tracking-normal text-navy-950">
