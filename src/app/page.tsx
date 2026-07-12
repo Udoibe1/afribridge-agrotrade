@@ -8,6 +8,7 @@ import {
   company,
   complianceExclusion,
   complianceStatement,
+  leadership,
   processSteps,
   productDisclaimer,
   products,
@@ -22,6 +23,7 @@ export default function HomePage() {
         <HeroSection />
         <TrustStatement />
         <AboutSection />
+        <LeadershipSection />
         <ProductsSection />
         <ServicesSection />
         <MarketsSection />
@@ -123,6 +125,38 @@ function AboutSection() {
           </p>
           <p>
             The company is not a direct producer, seller, exporter, buyer, supplier mandate, or owner of commodities unless specifically supported by written authorization. AfriBridge works to bring qualified parties into clearer commercial engagement while each party remains responsible for its own verification, approvals, contracts, and risk decisions.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function LeadershipSection() {
+  return (
+    <section className="bg-warm-50 py-16 sm:py-20">
+      <div className="container-shell grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
+        <div>
+          <p className="eyebrow">Leadership</p>
+          <h2 className="section-title mt-4">Founded for disciplined Russia-West Africa trade coordination.</h2>
+        </div>
+        <div>
+          <p className="text-base leading-8 text-slate-700">
+            AfriBridge AgroTrade was established by:
+          </p>
+          <div className="mt-6 grid gap-4 sm:grid-cols-2">
+            {leadership.map((leader) => (
+              <article
+                key={leader.name}
+                className="rounded-lg border border-forest-900/10 bg-white p-5 shadow-soft"
+              >
+                <h3 className="text-lg font-semibold text-navy-950">{leader.name}</h3>
+                <p className="mt-2 text-sm font-semibold text-forest-800">{leader.role}</p>
+              </article>
+            ))}
+          </div>
+          <p className="mt-6 text-base leading-8 text-slate-700">
+            Together, they support independent trade facilitation, commercial coordination, and market development between Russian supplier-side parties and West African buyers.
           </p>
         </div>
       </div>
@@ -310,7 +344,13 @@ function ContactSection() {
         </div>
         <address className="not-italic">
           <div className="grid gap-4 sm:grid-cols-2">
-            <ContactItem label="Founder" value={`${company.founder}, ${company.title}`} />
+            {leadership.map((leader) => (
+              <ContactItem
+                key={leader.name}
+                label="Founder"
+                value={`${leader.name}, ${leader.role}`}
+              />
+            ))}
             <ContactItem label="Location" value={company.location} />
             <ContactItem
               label="Email"

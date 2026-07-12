@@ -1,8 +1,8 @@
 export const company = {
   name: "AfriBridge AgroTrade",
   tagline: "Connecting Russian Supply with West African Demand",
-  founder: "Udo Ibeh",
-  title: "Founder & Independent Trade Facilitator",
+  founder: "Mr. Ibeh Nmecha Udo",
+  title: "Founder & Managing Partner",
   primaryEmail: "udo@afribridgeagro.trade",
   tradeEmail: "sulley@afribridgeagro.trade",
   whatsapp: "+7 993 339 2055",
@@ -10,6 +10,17 @@ export const company = {
   location: "Moscow, Russian Federation",
   markets: "Russia | Ghana | Nigeria | West Africa"
 };
+
+export const leadership = [
+  {
+    name: "Mr. Ibeh Nmecha Udo",
+    role: "Founder & Managing Partner"
+  },
+  {
+    name: "Mr. Bambe Bayirga Sulley",
+    role: "Founder & Trade Partner"
+  }
+];
 
 export const navigation = [
   { label: "Home", href: "#home" },
