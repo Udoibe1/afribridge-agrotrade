@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { company, companyDescription } from "@/lib/site-data";
 import "./globals.css";
 
 const siteUrl = "https://afribridgeagro.trade";
@@ -6,18 +7,17 @@ const siteUrl = "https://afribridgeagro.trade";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "AfriBridge AgroTrade | Russia to West Africa Trade Facilitation",
+    default: "AfriBridge AgroTrade | Russia to Africa Trade Facilitation",
     template: "%s | AfriBridge AgroTrade"
   },
-  description:
-    "AfriBridge AgroTrade facilitates credible agro-commodity trade opportunities between suppliers and qualified buyers across Ghana, Nigeria, and West Africa.",
+  description: companyDescription,
   applicationName: "AfriBridge AgroTrade",
   keywords: [
     "AfriBridge AgroTrade",
     "agro commodity trade facilitation",
-    "Russia West Africa trade",
-    "Ghana commodity buyers",
-    "Nigeria agro trade",
+    "Russia Africa trade",
+    "African commodity buyers",
+    "Africa agro trade",
     "wheat",
     "sugar",
     "sunflower oil",
@@ -33,15 +33,14 @@ export const metadata: Metadata = {
     type: "website",
     url: siteUrl,
     siteName: "AfriBridge AgroTrade",
-    title: "AfriBridge AgroTrade | Connecting Russian Supply with West African Demand",
-    description:
-      "Independent agro-commodity trade facilitation for credible suppliers and qualified buyers across Ghana, Nigeria, and West Africa."
+    title: `AfriBridge AgroTrade | ${company.tagline}`,
+    description: companyDescription
   },
   twitter: {
     card: "summary_large_image",
     title: "AfriBridge AgroTrade",
     description:
-      "Independent agro-commodity trade facilitation between suppliers and qualified West African buyers."
+      "Independent agro-commodity trade facilitation between suppliers and qualified African buyers."
   },
   robots: {
     index: true,

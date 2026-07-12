@@ -80,14 +80,14 @@ export function TradeRouteVisual() {
         <g>
           <circle cx="355" cy="519" r="12" fill="#2E6F46" />
           <circle cx="355" cy="519" r="25" stroke="#2E6F46" strokeOpacity="0.45" />
-          <text className="hidden sm:block" x="244" y="554" fill="#FBF8F1" fontSize="17" fontWeight="700">Ghana</text>
+          <text className="hidden sm:block" x="244" y="554" fill="#FBF8F1" fontSize="17" fontWeight="700">Africa</text>
           <text className="hidden sm:block" x="244" y="577" fill="#F2E8CC" fontSize="13">Qualified buyers</text>
         </g>
 
         <g>
           <circle cx="460" cy="548" r="12" fill="#2E6F46" />
           <circle cx="460" cy="548" r="25" stroke="#2E6F46" strokeOpacity="0.45" />
-          <text className="hidden sm:block" x="489" y="552" fill="#FBF8F1" fontSize="17" fontWeight="700">Nigeria</text>
+          <text className="hidden sm:block" x="489" y="552" fill="#FBF8F1" fontSize="17" fontWeight="700">Africa</text>
           <text className="hidden sm:block" x="489" y="575" fill="#F2E8CC" fontSize="13">Trade demand</text>
         </g>
 

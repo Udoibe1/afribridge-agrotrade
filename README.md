@@ -1,6 +1,6 @@
 # AfriBridge AgroTrade
 
-Production website for AfriBridge AgroTrade, an independent agro-commodity trade facilitator connecting credible supplier-side engagement with qualified buyer demand across Ghana, Nigeria, and West Africa.
+Production website for AfriBridge AgroTrade, an independent agro-commodity trade facilitator connecting credible Russian and international agro-commodity suppliers with qualified buyers across Africa.
 
 ## Local Development
 

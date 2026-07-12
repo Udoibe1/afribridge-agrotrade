@@ -6,6 +6,7 @@ import { SiteHeader } from "@/components/site-header";
 import { TradeRouteVisual } from "@/components/trade-route-visual";
 import {
   company,
+  companyDescription,
   complianceExclusion,
   complianceStatement,
   leadership,
@@ -46,10 +47,10 @@ function HeroSection() {
         <div className="max-w-3xl">
           <p className="eyebrow">AfriBridge AgroTrade</p>
           <h1 className="mt-6 text-4xl font-semibold tracking-normal text-white sm:text-5xl lg:text-6xl">
-            Connecting Russian Agro Supply with West African Demand
+            {company.tagline}
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-warm-100/90">
-            AfriBridge AgroTrade facilitates credible trade opportunities between established suppliers and qualified buyers across Ghana, Nigeria, and West Africa.
+            {companyDescription}
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Link
@@ -121,10 +122,10 @@ function AboutSection() {
         </div>
         <div className="space-y-5 text-base leading-8 text-slate-700">
           <p>
-            AfriBridge AgroTrade coordinates supplier engagement, buyer inquiries, commercial communication, documentation flow, and transaction support for agro-commodity opportunities connected to Ghana, Nigeria, and West Africa.
+            {companyDescription}
           </p>
           <p>
-            The company is not a direct producer, seller, exporter, buyer, supplier mandate, or owner of commodities unless specifically supported by written authorization. AfriBridge works to bring qualified parties into clearer commercial engagement while each party remains responsible for its own verification, approvals, contracts, and risk decisions.
+            The company operates only as an independent trade facilitator and does not present itself as a producer, direct seller, direct exporter, commodity owner, official supplier mandate, or guaranteed allocation holder. AfriBridge works to bring qualified parties into clearer commercial engagement while each party remains responsible for its own verification, approvals, contracts, and risk decisions.
           </p>
         </div>
       </div>
@@ -138,7 +139,7 @@ function LeadershipSection() {
       <div className="container-shell grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
         <div>
           <p className="eyebrow">Leadership</p>
-          <h2 className="section-title mt-4">Founded for disciplined Russia-West Africa trade coordination.</h2>
+          <h2 className="section-title mt-4">Founded for disciplined Russia-Africa trade coordination.</h2>
         </div>
         <div>
           <p className="text-base leading-8 text-slate-700">
@@ -156,7 +157,7 @@ function LeadershipSection() {
             ))}
           </div>
           <p className="mt-6 text-base leading-8 text-slate-700">
-            Together, they support independent trade facilitation, commercial coordination, and market development between Russian supplier-side parties and West African buyers.
+            Together, they support independent trade facilitation, commercial coordination, and market development between Russian supplier-side parties and African buyers.
           </p>
         </div>
       </div>
@@ -229,15 +230,18 @@ function MarketsSection() {
     <section id="markets" className="scroll-mt-20 bg-forest-900 py-16 text-white sm:py-20">
       <div className="container-shell grid gap-10 lg:grid-cols-2 lg:items-start">
         <div>
-          <p className="eyebrow">Markets</p>
+          <p className="eyebrow">Our Markets</p>
           <h2 className="mt-4 text-3xl font-semibold tracking-normal text-white sm:text-4xl">
-            Supplier engagement and buyer markets are handled with clear role boundaries.
+            AfriBridge AgroTrade supports agro-commodity trade opportunities between Russia and markets across Africa.
           </h2>
+          <p className="mt-5 text-base leading-8 text-warm-100/85">
+            We work to connect credible suppliers with qualified buyers throughout the continent, subject to product availability, commercial viability, due diligence, logistics, and applicable trade requirements.
+          </p>
         </div>
         <div className="grid gap-4 sm:grid-cols-2">
           <div className="rounded-lg border border-white/10 bg-white/10 p-6">
             <p className="text-sm font-semibold uppercase tracking-normal text-gold-300">
-              Supplier engagement origins
+              Supply Focus
             </p>
             <p className="mt-4 text-2xl font-semibold text-white">
               Russia and selected international origins
@@ -245,10 +249,10 @@ function MarketsSection() {
           </div>
           <div className="rounded-lg border border-white/10 bg-white/10 p-6">
             <p className="text-sm font-semibold uppercase tracking-normal text-gold-300">
-              Buyer markets
+              Target Market
             </p>
             <p className="mt-4 text-2xl font-semibold text-white">
-              Ghana, Nigeria, and West Africa
+              Africa
             </p>
           </div>
         </div>

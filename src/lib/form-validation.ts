@@ -28,7 +28,14 @@ export type ValidationResult = {
   errors: Record<string, string>;
 };
 
-const countries = ["Ghana", "Nigeria", "Other West African market", "Other"];
+const countries = [
+  "Africa",
+  "East African market",
+  "Central African market",
+  "North African market",
+  "Southern African market",
+  "Other African market"
+];
 const incoterms = ["EXW", "FCA", "FOB", "CFR", "CIF", "DAP", "Other"];
 const quantityUnits = ["MT", "KG", "Liters", "Containers", "Other"];
 const paymentInstruments = [

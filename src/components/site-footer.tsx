@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { company } from "@/lib/site-data";
+import { company, companyDescription } from "@/lib/site-data";
 
 export function SiteFooter() {
   const links = [
@@ -17,7 +17,7 @@ export function SiteFooter() {
           <div>
             <p className="text-lg font-semibold">{company.name}</p>
             <p className="mt-2 max-w-xl text-sm leading-6 text-warm-100/80">
-              Independent agro-commodity trade facilitation connecting credible supplier engagement with qualified buyer demand across West Africa.
+              {companyDescription}
             </p>
           </div>
           <nav className="flex flex-wrap gap-3 md:justify-end" aria-label="Footer navigation">
