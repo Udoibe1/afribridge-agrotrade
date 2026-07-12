@@ -99,6 +99,7 @@ NETLIFY_NEXT_SKEW_PROTECTION=true
 Important notes:
 
 - `RESEND_API_KEY` must stay secret.
+- `RESEND_API_KEY` must be the real key from Resend, not placeholder text such as `your_resend_api_key`.
 - `AFRIBRIDGE_FORM_FROM` must use a sender address verified in Resend.
 - `AFRIBRIDGE_ALLOWED_ORIGINS` must include the temporary Netlify URL during testing, then the final custom domain after launch.
 - After changing environment variables, trigger a new deploy.
@@ -126,6 +127,14 @@ If a valid submission says delivery is not configured, check:
 - Resend domain verification
 - Netlify deploy logs
 - Netlify function logs for `/api/inquiries`
+
+If a valid submission says delivery failed, the form reached the server but Resend did not accept the email. Check:
+
+- The Resend API key is real, active, and copied without spaces.
+- The sender domain for `forms@afribridgeagro.trade` is verified in Resend.
+- SPF, DKIM, and DMARC records from Resend are added in DNS.
+- `AFRIBRIDGE_FORM_FROM` exactly matches the verified sender format, for example `AfriBridge AgroTrade <forms@afribridgeagro.trade>`.
+- Netlify has been redeployed after the environment variable change.
 
 ## 7. Add The Custom Domain
 

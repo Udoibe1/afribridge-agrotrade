@@ -29,7 +29,7 @@ Create `.env.local` for local production-like testing and add these values in yo
 | `AFRIBRIDGE_FORM_WEBHOOK_URL` | Optional | HTTPS fallback delivery endpoint. |
 | `AFRIBRIDGE_FORM_WEBHOOK_TOKEN` | Optional | Bearer token for the fallback webhook. |
 
-The Resend API key is never exposed to the browser. Form submissions are validated server-side before delivery.
+The Resend API key is never exposed to the browser. Form submissions are validated server-side before delivery. Do not enter placeholder text such as `your_resend_api_key`; Netlify must contain a real Resend key with permission to send from the verified sender domain.
 
 ## Vercel Deployment
 
@@ -106,4 +106,4 @@ Then verify:
 - Configure production environment variables in the deployment provider.
 - Submit one real buyer test and one supplier test.
 - Review the deployed desktop, tablet, and mobile pages.
-- Confirm Vercel SSL is active for the custom domain.
+- Confirm Netlify SSL is active for the custom domain.
