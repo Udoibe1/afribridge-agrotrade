@@ -42,7 +42,7 @@ function HeroSection() {
   return (
     <section className="relative isolate overflow-hidden bg-navy-950 text-white">
       <TradeRouteVisual />
-      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,13,24,0.98)_0%,rgba(7,13,24,0.88)_42%,rgba(7,13,24,0.24)_100%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,13,24,0.98)_0%,rgba(7,13,24,0.72)_44%,rgba(7,13,24,0.1)_100%)]" />
       <div className="container-shell relative py-16 sm:py-20 lg:py-24">
         <div className="max-w-3xl">
           <p className="eyebrow">AfriBridge AgroTrade</p>
@@ -365,6 +365,11 @@ function ContactSection() {
               label="Trade contact"
               value={company.tradeEmail}
               href={`mailto:${company.tradeEmail}`}
+            />
+            <ContactItem
+              label="Call"
+              value={company.phone}
+              href={company.phoneUrl}
             />
             <ContactItem
               label="WhatsApp"

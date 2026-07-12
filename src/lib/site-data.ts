@@ -5,6 +5,8 @@ export const company = {
   title: "Founder & Managing Partner",
   primaryEmail: "udo@afribridgeagro.trade",
   tradeEmail: "sulley@afribridgeagro.trade",
+  phone: "+7 916 947 5366",
+  phoneUrl: "tel:+79169475366",
   whatsapp: "+7 993 339 2055",
   whatsappUrl: "https://wa.me/79933392055",
   location: "Moscow, Russian Federation",

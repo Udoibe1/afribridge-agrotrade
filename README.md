@@ -98,6 +98,7 @@ Then verify:
 - Confirm company name: AfriBridge AgroTrade.
 - Confirm primary email: `udo@afribridgeagro.trade`.
 - Confirm trade contact: `sulley@afribridgeagro.trade`.
+- Confirm call phone: `+7 916 947 5366`.
 - Confirm WhatsApp: `+7 993 339 2055`.
 - Confirm location: Moscow, Russian Federation.
 - Verify Resend sender domain for `afribridgeagro.trade`.
