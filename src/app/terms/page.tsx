@@ -18,7 +18,7 @@ export default function TermsPage() {
       </p>
       <h2>No transaction guarantee</h2>
       <p>
-        Any trade opportunity is subject to supplier availability, buyer qualification, counterparty due diligence, contractual agreement, applicable sanctions, trade-control, export-control, customs, and regulatory requirements, and relevant laws.
+        Any trade opportunity is subject to supplier availability, buyer qualification, counterparty due diligence, contractual agreement, applicable sanctions, trade controls, export controls, customs requirements, regulatory obligations, and governing laws.
       </p>
       <h2>User responsibility</h2>
       <p>

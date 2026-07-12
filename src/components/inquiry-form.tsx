@@ -269,6 +269,12 @@ function FieldControl({
       <label htmlFor={id} className="text-sm font-semibold text-navy-950">
         {field.label}
         {field.required ? <span className="text-red-700"> *</span> : null}
+        {field.hint ? (
+          <span className="ml-2 text-xs font-medium text-slate-500">
+            {" "}
+            {field.hint}
+          </span>
+        ) : null}
       </label>
       {field.type === "select" ? (
         <select

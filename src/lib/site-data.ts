@@ -16,6 +16,9 @@ export const company = {
 export const companyDescription =
   "AfriBridge AgroTrade is an independent trade facilitation company connecting credible Russian and international agro-commodity suppliers with qualified buyers across Africa.";
 
+export const engagementStatement =
+  "We coordinate verified commercial engagement between qualified buyers and credible supplier-side parties while supporting clear communication, documentation, and due diligence.";
+
 export const leadership = [
   {
     name: "Mr. Ibeh Nmecha Udo",
@@ -87,7 +90,7 @@ export const processSteps = [
 ];
 
 export const complianceStatement =
-  "AfriBridge AgroTrade operates as an independent trade facilitator. We do not claim ownership of commodities, guaranteed allocation, producer status, direct seller status, or official supplier representation unless supported by valid written authorization. All transactions are subject to independent verification, counterparty due diligence, supplier approval, contractual agreement, applicable sanctions, trade-control, export-control, customs, and regulatory requirements, and relevant laws.";
+  "AfriBridge AgroTrade operates as an independent trade facilitator. We do not claim ownership of commodities, guaranteed allocation, producer status, direct seller status, or official supplier representation unless supported by valid written authorization. All transactions are subject to independent verification, counterparty due diligence, supplier approval, contractual agreement, applicable sanctions, trade controls, export controls, customs requirements, regulatory obligations, and governing laws.";
 
 export const complianceExclusion =
   "AfriBridge does not provide banking guarantees, investment services, legal advice, inspection certification, or guaranteed transaction outcomes.";

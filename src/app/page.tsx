@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { InquiryForm } from "@/components/inquiry-form";
+import { InquiryTabs } from "@/components/inquiry-tabs";
 import { ProductGlyph } from "@/components/product-glyph";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -9,6 +9,7 @@ import {
   companyDescription,
   complianceExclusion,
   complianceStatement,
+  engagementStatement,
   leadership,
   processSteps,
   productDisclaimer,
@@ -49,7 +50,7 @@ function HeroSection() {
             {company.tagline}
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-warm-100/90">
-            {companyDescription}
+            {engagementStatement}
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Link
@@ -125,7 +126,7 @@ function AboutSection() {
             {companyDescription}
           </p>
           <p>
-            The company operates only as an independent trade facilitator and does not present itself as a producer, direct seller, direct exporter, commodity owner, official supplier mandate, or guaranteed allocation holder. AfriBridge works to bring qualified parties into clearer commercial engagement while each party remains responsible for its own verification, approvals, contracts, and risk decisions.
+            {engagementStatement}
           </p>
         </div>
       </div>
@@ -171,11 +172,11 @@ function ProductsSection() {
       <div className="container-shell">
         <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="eyebrow">Products</p>
-          <h2 className="section-title mt-4">Commodity categories reviewed through supplier-side engagement.</h2>
+            <p className="eyebrow">Product scope</p>
+            <h2 className="section-title mt-4">Products</h2>
           </div>
           <p className="section-copy md:max-w-md">
-            Product discussions begin with documented buyer requirements and supplier-side availability checks.
+            Agro-commodity opportunities supported through verified supplier engagement.
           </p>
         </div>
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -200,10 +201,10 @@ function ServicesSection() {
     <section id="services" className="scroll-mt-20 py-16 sm:py-20">
       <div className="container-shell">
         <div className="max-w-3xl">
-          <p className="eyebrow">Services</p>
-          <h2 className="section-title mt-4">Commercial coordination without overstated guarantees.</h2>
+          <p className="eyebrow">Trade support</p>
+          <h2 className="section-title mt-4">Services</h2>
           <p className="section-copy mt-5">
-            AfriBridge supports the communication and document flow that helps credible parties evaluate whether a trade can proceed.
+            Structured trade coordination from inquiry to qualified counterparty engagement.
           </p>
         </div>
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -295,23 +296,11 @@ function FormsSection() {
           <p className="section-copy mt-5">
             These forms collect the details needed to review fit, reduce ambiguity, and keep commercial discussions grounded in verifiable information.
           </p>
+          <p className="mt-5 rounded-lg border border-forest-900/10 bg-warm-50 px-4 py-3 text-sm font-semibold leading-6 text-forest-900">
+            We welcome documented buyer requirements and verifiable supplier profiles for serious commercial review.
+          </p>
         </div>
-        <div className="mt-10 grid gap-6 xl:grid-cols-2">
-          <div id="buyer-inquiry" className="scroll-mt-24">
-            <InquiryForm
-              kind="buyer"
-              title="Buyer inquiry form"
-              description="For qualified buyers requesting sugar, wheat, wheat flour, sunflower oil, or fertilizer supply discussions."
-            />
-          </div>
-          <div id="supplier-partnership" className="scroll-mt-24">
-            <InquiryForm
-              kind="supplier"
-              title="Supplier partnership form"
-              description="For producers, exporters, traders, and authorized representatives with verifiable product availability."
-            />
-          </div>
-        </div>
+        <InquiryTabs />
       </div>
     </section>
   );

@@ -21,6 +21,7 @@ export type FieldDefinition = {
   fullWidth?: boolean;
   autocomplete?: string;
   placeholder?: string;
+  hint?: string;
 };
 
 export type ValidationResult = {
@@ -96,11 +97,11 @@ const marketRegions = [
 const incoterms = ["EXW", "FCA", "FOB", "CFR", "CIF", "DAP", "Other"];
 const quantityUnits = ["MT", "KG", "Liters", "Containers", "Other"];
 const paymentInstruments = [
-  "Letter of credit",
+  "Documentary Letter of Credit (DLC/LC)",
   "SBLC",
-  "Documentary collection",
-  "Bank transfer",
-  "To be discussed"
+  "Documentary Collection",
+  "Bank Transfer",
+  "To Be Discussed"
 ];
 const readiness = ["Yes", "No", "In progress"];
 const supplierRoles = [
@@ -278,9 +279,10 @@ export const supplierFields: readonly FieldDefinition[] = [
     name: "companyWebsite",
     label: "Company website",
     type: "url",
-    required: true,
+    required: false,
     maxLength: 200,
-    autocomplete: "url"
+    autocomplete: "url",
+    hint: "Optional"
   },
   {
     name: "country",
